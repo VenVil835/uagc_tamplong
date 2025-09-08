@@ -67,7 +67,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
             {showPrivacyModal && (
                 <div className={`fixed inset-0 bg-black/0.5 backdrop-blur-md flex items-center justify-center p-4 z-50 transition-opacity duration-300 ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
                 >
-                    <div className={`bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative transform transition-all duration-300 ease-out ${isFadingOut ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+                    <div className={`border-1 border-black bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative transform transition-all duration-300 ease-out ${isFadingOut ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
                         {/* Modal Header */}
                         <div className="flex items-center justify-center mb-4">
                             <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-2">
