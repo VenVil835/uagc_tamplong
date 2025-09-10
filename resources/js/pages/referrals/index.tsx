@@ -1,4 +1,4 @@
-import { IntakeForm } from './intake-form';
+import { IntakeForm } from './IntakeForm';
 import { useState, useEffect } from 'react';
 import { Search, X, Plus, Eye, Edit, Trash2, ChevronDown, Settings2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -12,6 +12,7 @@ import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import ReferralForm from './referralForm';
 import { ReferralDetailsModal } from "./ReferralDetailsModal";
+import UpdateForm from "./UpdateForm";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -32,20 +33,20 @@ const mockStudents = [
 // Mock referral data - separated by type for incoming and outgoing
 const mockReferralsData = {
   incoming: [
-    { id: 1, name: 'Mark David Prado', email: 'markdavidprado@gmail.com', program: '8801', role: 'Student', status: 'Pending', type: 'incoming' },
-    { id: 2, name: 'Maria Santos', email: 'maria.santos@gmail.com', program: '8802', role: 'Student', status: 'Approved', type: 'incoming' },
-    { id: 3, name: 'John Cruz', email: 'john.cruz@gmail.com', program: '8803', role: 'Student', status: 'Rejected', type: 'incoming' },
-    { id: 4, name: 'Ana Reyes', email: 'ana.reyes@gmail.com', program: '8804', role: 'Student', status: 'Pending', type: 'incoming' },
-    { id: 5, name: 'Carlos Mendoza', email: 'carlos.mendoza@gmail.com', program: '8805', role: 'Student', status: 'Approved', type: 'incoming' },
+    { id: 1, campus:'Obrero', name: 'Mark David Prado', email: 'markdavidprado@gmail.com', program: 'BSIT', college: 'CIC', status: 'Pending', type: 'incoming', nature: 'Individual Counseling', mode: 'Face-to-Face', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 2, campus:'Mintal', name: 'Maria Santos', email: 'maria.santos@gmail.com', program: 'BSIT', college: 'CIC', status: 'Approved', type: 'incoming', nature: 'Psychological Testing', mode: 'Tele-Counseling', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 3, campus:'Tagum-Mabini', name: 'John Cruz', email: 'john.cruz@gmail.com', program: 'BSIT', college: 'CIC', status: 'Rejected', type: 'incoming', nature: 'Individual Counseling', mode: 'Face-to-Face', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 4, campus:'Obrero', name: 'Ana Reyes', email: 'ana.reyes@gmail.com', program: 'BSIT', college: 'CIC', status: 'Pending', type: 'incoming', nature: 'Psychological Testing', mode: 'Tele-Counseling', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 5, campus:'Mintal', name: 'Carlos Mendoza', email: 'carlos.mendoza@gmail.com', program: 'BSIT', college: 'CIC', status: 'Approved', type: 'incoming', nature: 'Individual Counseling', mode: 'Face-to-Face', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
   ],
   outgoing: [
-    { id: 6, name: 'Lisa Garcia', email: 'lisa.garcia@gmail.com', program: '8806', role: 'Student', status: 'Pending', type: 'outgoing' },
-    { id: 7, name: 'Miguel Torres', email: 'miguel.torres@gmail.com', program: '8807', role: 'Student', status: 'Approved', type: 'outgoing' },
-    { id: 8, name: 'Sofia Ramirez', email: 'sofia.ramirez@gmail.com', program: '8808', role: 'Student', status: 'Rejected', type: 'outgoing' },
-    { id: 9, name: 'Diego Lopez', email: 'diego.lopez@gmail.com', program: '8809', role: 'Student', status: 'Pending', type: 'outgoing' },
-    { id: 10, name: 'Carmen Flores', email: 'carmen.flores@gmail.com', program: '8810', role: 'Student', status: 'Approved', type: 'outgoing' },
-    { id: 11, name: 'Roberto Silva', email: 'roberto.silva@gmail.com', program: '8811', role: 'Student', status: 'Pending', type: 'outgoing' },
-    { id: 12, name: 'Elena Martinez', email: 'elena.martinez@gmail.com', program: '8812', role: 'Student', status: 'Approved', type: 'outgoing' }
+    { id: 6, campus:'Obrero', name: 'Lisa Garcia', email: 'lisa.garcia@gmail.com', program: 'BSIT', college: 'CIC', status: 'Pending', type: 'outgoing', nature: 'Psychological Testing', mode: 'Tele-Counseling', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 7, campus:'Mintal', name: 'Miguel Torres', email: 'miguel.torres@gmail.com', program: 'BSIT', college: 'CIC', status: 'Approved', type: 'outgoing', nature: 'Individual Counseling', mode: 'Face-to-Face', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 8, campus:'Tagum-Mabini', name: 'Sofia Ramirez', email: 'sofia.ramirez@gmail.com', program: 'BSIT', college: 'CIC', status: 'Rejected', type: 'outgoing', nature: 'Psychological Testing', mode: 'Tele-Counseling', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 9, campus:'Obrero', name: 'Diego Lopez', email: 'diego.lopez@gmail.com', program: 'BSIT', college: 'CIC', status: 'Pending', type: 'outgoing', nature: 'Individual Counseling', mode: 'Face-to-Face', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 10, campus:'Mintal', name: 'Carmen Flores', email: 'carmen.flores@gmail.com', program: 'BSIT', college: 'CIC', status: 'Approved', type: 'outgoing', nature: 'Psychological Testing', mode: 'Tele-Counseling', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 11, campus:'Tagum-Mabini', name: 'Roberto Silva', email: 'roberto.silva@gmail.com', program: 'BSIT', college: 'CIC', status: 'Pending', type: 'outgoing', nature: 'Individual Counseling', mode: 'Face-to-Face', reason: 'Feeling overwhelmed with academic workload and personal issues.' },
+    { id: 12, campus:'Obrero', name: 'Elena Martinez', email: 'elena.martinez@gmail.com', program: 'BSIT', college: 'CIC', status: 'Approved', type: 'outgoing', nature: 'Psychological Testing', mode: 'Tele-Counseling', reason: 'Feeling overwhelmed with academic workload and personal issues.' }
   ]
 };
 
@@ -53,7 +54,7 @@ const columns = [
   { key: 'name', label: 'Name' },
   { key: 'email', label: 'Email' },
   { key: 'program', label: 'Program' },
-  { key: 'role', label: 'Role' },
+  { key: 'college', label: 'College' },
   { key: 'status', label: 'Status' },
   { key: 'actions', label: 'Actions' }
 ];
@@ -61,6 +62,9 @@ const columns = [
 function ReferralsInterface({onProceedToIntake }) {
   const [selectedReferral, setSelectedReferral] = useState<any>(null);
   const [showModal, setShowModal] = useState(false);
+
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const [editingReferral, setEditingReferral] = useState<any>(null);
 
   const handleView = (referral: any) => {
     setSelectedReferral(referral);
@@ -76,7 +80,7 @@ function ReferralsInterface({onProceedToIntake }) {
     name: true,
     email: true,
     program: true,
-    role: true,
+    college: true,
     status: true,
     actions: true
   });
@@ -131,7 +135,7 @@ function ReferralsInterface({onProceedToIntake }) {
 return (
     <div className="bg-background rounded-lg shadow-sm">
       {/* Header with tabs and create button */}
-      <div className="flex items-center justify-between p-4 border-b  overflow-x-auto">
+      <div className="flex items-center justify-between p-4 border-b  overflow-x-auto gap-2">
         <div className="flex space-x-1">
           <Button
             onClick={() => setActiveTab('incoming')}
@@ -173,7 +177,7 @@ return (
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
               type="text"
-              placeholder="Search by name, email, or role..."
+              placeholder="Search by name, email, or college..."
               value={globalFilter}
               onChange={(e) => handleGlobalFilterChange(e.target.value)}
               className="pl-10"
@@ -229,7 +233,7 @@ return (
               {visibleColumns.name && <TableHead>Name ↕</TableHead>}
               {visibleColumns.email && <TableHead>Email ↕</TableHead>}
               {visibleColumns.program && <TableHead>Program</TableHead>}
-              {visibleColumns.role && <TableHead>Role</TableHead>}
+              {visibleColumns.college && <TableHead>College</TableHead>}
               {visibleColumns.status && <TableHead>Status</TableHead>}
               {visibleColumns.actions && <TableHead className="text-center">Actions</TableHead>}
             </TableRow>
@@ -238,12 +242,12 @@ return (
             {paginatedData.length > 0 ? (
               paginatedData.map((referral) => (
                 <TableRow key={referral.id}>
-                  {visibleColumns.name && <TableCell>{referral.name}</TableCell>}
-                  {visibleColumns.email && <TableCell className="text-primary">{referral.email}</TableCell>}
-                  {visibleColumns.program && <TableCell>{referral.program}</TableCell>}
-                  {visibleColumns.role && <TableCell>{referral.role}</TableCell>}
+                  {visibleColumns.name && <TableCell className="max-w-[120px] truncate">{referral.name}</TableCell>}
+                  {visibleColumns.email && <TableCell className="max-w-[120px] truncate text-primary">{referral.email}</TableCell>}
+                  {visibleColumns.program && <TableCell className="max-w-[120px] truncate">{referral.program}</TableCell>}
+                  {visibleColumns.college && <TableCell className="max-w-[120px] truncate">{referral.college}</TableCell>}
                   {visibleColumns.status && (
-                    <TableCell>
+                    <TableCell className="whitespace-nowrap">
                       <Badge 
                         variant="secondary" 
                         className={
@@ -263,7 +267,7 @@ return (
                           <Eye className="h-4 w-4" />
                           
                         </Button>
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 cursor-pointer">
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0 cursor-pointer" onClick={() => { setEditingReferral(referral); setShowUpdateForm(true); }}>
                           <Edit className="h-4 w-4" />
                         </Button>
                         <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-destructive hover:text-destructive cursor-pointer">
@@ -292,15 +296,15 @@ return (
             <div key={referral.id} className="bg-card rounded-lg border p-2 space-y-3">
               <div className="flex justify-between items-start">
                 <div>
-                  {visibleColumns.name && <h3 className="font-medium">{referral.name}</h3>}
-                  {visibleColumns.email && <p className="text-sm text-primary">{referral.email}</p>}
+                  {visibleColumns.name && <h3 className="font-medium max-w-[120px] truncate">{referral.name}</h3>}
+                  {visibleColumns.email && <p className="text-sm text-primary max-w-[120px] truncate">{referral.email}</p>}
                 </div>
                 {visibleColumns.status && (
                   <Badge 
                     variant="secondary" 
                     className={
-                      referral.status === 'Pending' ? 'bg-yellow-100 text-yellow-800 hover:bg-yellow-100' :
-                      referral.status === 'Approved' ? 'bg-green-100 text-green-800 hover:bg-green-100' :
+                      referral.status === 'Pending' ? 'bg-yellow-100 text-yellow-800 hover:bg-yellow-100 whitespace-nowrap' :
+                      referral.status === 'Approved' ? 'bg-green-100 text-green-800 hover:bg-green-100 whitespace-nowrap' :
                       'bg-red-100 text-red-800 hover:bg-red-100'
                     }
                   >
@@ -316,10 +320,10 @@ return (
                     <p className="font-medium">{referral.program}</p>
                   </div>
                 )}
-                {visibleColumns.role && (
+                {visibleColumns.college && (
                   <div>
-                    <span className="text-muted-foreground">Role:</span>
-                    <p className="font-medium">{referral.role}</p>
+                    <span className="text-muted-foreground">College:</span>
+                    <p className="font-medium">{referral.college}</p>
                   </div>
                 )}
               </div>
@@ -415,6 +419,16 @@ return (
         }}
         referral={selectedReferral}
       />
+      <UpdateForm
+        open={showUpdateForm}
+        onOpenChange={setShowUpdateForm}
+        referral={editingReferral}
+        campusOptions={campusOptions}
+        onSubmit={(updatedData) => {
+        console.log("Updated referral:", updatedData);
+         setShowUpdateForm(false);
+        }}
+      />
     </div>
   );
 }
@@ -441,11 +455,14 @@ export default function Index() {
           ) : (
             <>
               {/* Intake Form view with back button */}
-              <div className="flex justify-end p-2">
-                <Button variant="outline" onClick={() => setShowIntakeForm(false)}>
+            
+                <Button 
+                  className="flex items-center text-gray-600 hover:text-gray-900 transition-colors self-start"
+                  variant="outline" onClick={() => setShowIntakeForm(false)}>
+                  <ChevronLeft className="w-4 h-4" />
                   Back to Referrals
                 </Button>
-              </div>
+             
               <IntakeForm />
             </>
           )}

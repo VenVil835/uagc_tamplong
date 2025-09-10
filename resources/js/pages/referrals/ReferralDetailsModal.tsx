@@ -7,8 +7,10 @@ interface ReferralDetailsModalProps {
   onProceed: () => void;
   referral: {
     status: string;
+    type: string;
     campus: string;
-    student: string;
+    name: string;
+    email: string;
     nature: string;
     mode: string;
     reason: string;
@@ -29,9 +31,16 @@ export function ReferralDetailsModal({ isOpen, onClose, onProceed, referral }: R
             Your referral was acknowledged by the UAGC Counselor.
           </p>
           <div className="grid grid-cols-2 gap-2 text-sm">
-            <p><span className="font-semibold">Status:</span> <span className="text-green-600">{referral.status}</span></p>
+            <p><span className="font-semibold">Status:</span> <span className={
+                          referral.status === 'Pending' ? 'bg-yellow-100 text-yellow-800 hover:bg-yellow-100' :
+                          referral.status === 'Approved' ? 'bg-green-100 text-green-800 hover:bg-green-100' :
+                          'bg-red-100 text-red-800 hover:bg-red-100'
+                        }>{referral.status}</span></p>
+            <p><span className="font-semibold">Type:</span> {referral.type}</p>
             <p><span className="font-semibold">Campus:</span> {referral.campus}</p>
-            <p><span className="font-semibold">Student:</span> {referral.student}</p>
+            <p><span className="font-semibold">Student:</span> {referral.name}</p>
+            <p><span className="font-semibold ">Email:</span> {referral.email}</p>
+            <br />
             <p><span className="font-semibold">Nature of request:</span> {referral.nature}</p>
             <p><span className="font-semibold">Mode of counseling:</span> {referral.mode}</p>
           </div>
