@@ -200,7 +200,7 @@ export function IntakeForm() {
   };
 
   return (
-    <div className="bg-background rounded-lg shadow-sm p-6">
+    <div className="bg-background rounded-lg p-6">
       <h1 className="text-lg font-bold mb-6">Intake Form</h1>
       
       <div className="flex mb-6 overflow-x-auto pb-2">
@@ -224,7 +224,7 @@ export function IntakeForm() {
       <Accordion type="single" collapsible className="w-full">
         {/* Personal Section */}
         <AccordionItem value="personal">
-          <AccordionTrigger className="text-m font-semibold">
+          <AccordionTrigger className="text-m font-semibold cursor-pointer">
             <div className="flex items-center">
               {isSectionComplete('personal') ? (
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -355,7 +355,7 @@ export function IntakeForm() {
 
         {/* Interpersonal Section */}
         <AccordionItem value="interpersonal">
-          <AccordionTrigger className="text-m font-semibold">
+          <AccordionTrigger className="text-m font-semibold cursor-pointer">
             <div className="flex items-center">
               {isSectionComplete('interpersonal') ? (
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -522,7 +522,7 @@ export function IntakeForm() {
 
         {/* Family Section */}
         <AccordionItem value="family">
-          <AccordionTrigger className="text-m font-semibold">
+          <AccordionTrigger className="text-m font-semibold cursor-pointer">
             <div className="flex items-center">
               {isSectionComplete('family') ? (
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -626,7 +626,7 @@ export function IntakeForm() {
 
         {/* Grief/Bereavement Section */}
         <AccordionItem value="grief">
-          <AccordionTrigger className="text-m font-semibold">
+          <AccordionTrigger className="text-m font-semibold cursor-pointer">
             <div className="flex items-center">
               {isSectionComplete('grief') ? (
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -677,7 +677,7 @@ export function IntakeForm() {
 
         {/* Academics Section */}
         <AccordionItem value="academics">
-          <AccordionTrigger className="text-m font-semibold">
+          <AccordionTrigger className="text-m font-semibold cursor-pointer">
             <div className="flex items-center">
               {isSectionComplete('academics') ? (
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -773,7 +773,7 @@ export function IntakeForm() {
 
         {/* Career Section */}
         <AccordionItem value="career">
-          <AccordionTrigger className="text-m font-semibold">
+          <AccordionTrigger className="text-m font-semibold cursor-pointer">
             <div className="flex items-center">
               {isSectionComplete('career') ? (
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -795,7 +795,7 @@ export function IntakeForm() {
 
         {/* Other Problems Section */}
         <AccordionItem value="other">
-          <AccordionTrigger className="text-m font-semibold">
+          <AccordionTrigger className="text-m font-semibold cursor-pointer">
             <div className="flex items-center">
               {isSectionComplete('other') ? (
                 <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
@@ -825,8 +825,8 @@ export function IntakeForm() {
         </AccordionItem>
       </Accordion>
 
-      <div className="mt-6 flex justify-end">
-        <Button onClick={handleSubmit} size="lg">
+      <div className="mt-6 flex justify-end ">
+        <Button onClick={handleSubmit} size="lg" className="cursor-pointer">
           Save
         </Button>
       </div>

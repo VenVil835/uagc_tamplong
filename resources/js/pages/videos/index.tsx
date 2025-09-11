@@ -39,6 +39,8 @@ export default function Index() {
         "University wellness initiatives and programs designed to promote student well-being throughout the month.",
       thumbnail:
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
+      videoUrl: "https://www.youtube.com/watch?v=K_t1-r6RDhA&ab_channel=SHAMCEYTV",
+      videoType: "youtube",
       duration: "22:15",
       category: "Wellness",
       postedDate: "October 15th, 2023",

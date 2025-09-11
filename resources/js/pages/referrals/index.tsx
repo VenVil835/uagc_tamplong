@@ -10,7 +10,7 @@ import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMe
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
-import ReferralForm from './referralForm';
+import ReferralForm from './ReferralForm';
 import { ReferralDetailsModal } from "./ReferralDetailsModal";
 import UpdateForm from "./UpdateForm";
 
@@ -334,7 +334,7 @@ return (
                     <Eye className="h-4 w-4 mr-2" />
                 
                   </Button>
-                  <Button variant="ghost" size="sm" className="flex-1">
+                  <Button variant="ghost" size="sm" className="flex-1" onClick={() => { setEditingReferral(referral); setShowUpdateForm(true); }}>
                     <Edit className="h-4 w-4 mr-2" />
                     
                   </Button>
@@ -456,12 +456,12 @@ export default function Index() {
             <>
               {/* Intake Form view with back button */}
             
-                <Button 
-                  className="flex items-center text-gray-600 hover:text-gray-900 transition-colors self-start"
-                  variant="outline" onClick={() => setShowIntakeForm(false)}>
+                <button 
+                  className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                   onClick={() => setShowIntakeForm(false)}>
                   <ChevronLeft className="w-4 h-4" />
                   Back to Referrals
-                </Button>
+                </button>
              
               <IntakeForm />
             </>
