@@ -98,13 +98,13 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             <div className="flex space-x-4 justify-center">
                                 <Button
                                     onClick={handlePrivacyDisagree}
-                                    className="px-6 py-2 bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md transition duration-200"
+                                    className="px-6 py-2 bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-md transition duration-200 cursor-pointer"
                                 >
                                     Disagree
                                 </Button>
                                 <Button
                                     onClick={handlePrivacyAgree}
-                                    className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition duration-200"
+                                    className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition duration-200 cursor-pointer"
                                 >
                                     Agree
                                 </Button>

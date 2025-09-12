@@ -242,7 +242,7 @@ export default function ReferralForm({
             />
           </div>
 
-          <Button onClick={handleSubmit} className="w-full">
+          <Button onClick={handleSubmit} className="w-full cursor-pointer">
             Submit
           </Button>
         </div>

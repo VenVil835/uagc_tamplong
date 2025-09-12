@@ -136,7 +136,7 @@ export default function UpdateForm({
             />
           </div>
 
-          <Button onClick={handleSubmit} className="w-full">
+          <Button onClick={handleSubmit} className="w-full cursor-pointer">
             Update
           </Button>
         </div>

@@ -51,7 +51,8 @@ export function ReferralDetailsModal({ isOpen, onClose, onProceed, referral }: R
               <p className="p-2 border rounded bg-gray-50 text-sm">{referral.reason}</p>
             </div>
           </div>
-          <div className="text-sm">
+          <div className="text-sm bg-background rounded-lg shadow-sm p-4">
+            <DialogTitle className="p-2">Feedback</DialogTitle>
             <div>
                 <p>Thank you for referring Mr/Ms <span className="font-semibold">{referral.name} </span>
                 for assessment or counseling. The status of the referral is as follows: </p>
@@ -71,8 +72,8 @@ export function ReferralDetailsModal({ isOpen, onClose, onProceed, referral }: R
             </div>
           </div>
         <div className="flex justify-end gap-2 pt-4">
-          <Button variant="secondary" onClick={onClose}>Decline</Button>
-          <Button variant="destructive" onClick={onProceed}>Proceed</Button>
+          <Button className="cursor-pointer" variant="secondary" onClick={onClose}>Decline</Button>
+          <Button className="bg-primary cursor-pointer" variant="destructive" onClick={onProceed}>Proceed</Button>
         </div>
       </DialogContent>
     </Dialog>

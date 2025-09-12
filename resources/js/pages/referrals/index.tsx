@@ -140,14 +140,14 @@ return (
           <Button
             onClick={() => setActiveTab('incoming')}
             variant={activeTab === 'incoming' ? 'default' : 'ghost'}
-            className={activeTab === 'incoming' ? 'border-b-2 border-primary cursor-pointer' : ''}
+            className={activeTab === 'incoming' ? 'border-b-2 border-primary' : 'cursor-pointer '}
           >
             Incoming
           </Button>
           <Button
             onClick={() => setActiveTab('outgoing')}
             variant={activeTab === 'outgoing' ? 'default' : 'ghost'}
-            className={activeTab === 'outgoing' ? 'border-b-2 border-primary cursor-pointer' : ''}
+            className={activeTab === 'outgoing' ? 'border-b-2 border-primary' : 'cursor-pointer'}
           >
             Outgoing
           </Button>

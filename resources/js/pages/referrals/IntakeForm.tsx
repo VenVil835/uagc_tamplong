@@ -827,7 +827,7 @@ export function IntakeForm() {
 
       <div className="mt-6 flex justify-end ">
         <Button onClick={handleSubmit} size="lg" className="cursor-pointer">
-          Save
+          Submit
         </Button>
       </div>
     </div>
