@@ -115,7 +115,6 @@ const Header = () => {
   };
 
   
-    
   return (
 <header className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 ${
         isHeaderBlurred 
@@ -167,7 +166,7 @@ const Header = () => {
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`px-4 py-4 md:py-0 md:h-16 text-center md:flex md:items-center font-medium transition-all duration-300 border-l-4 md:border-l-0 md:border-b-2 ${
+                className={`px-4 py-4 md:py-0 md:h-16 text-center md:flex md:items-center font-medium transition-all duration-300 border-l-4 md:border-l-0 md:border-b-2 cursor-pointer ${
                   activeSection === id
                     ? 'text-gray-900 border-red-600 bg-gray-50 md:bg-transparent'
                     : 'text-gray-500 border-transparent hover:text-gray-900 hover:bg-gray-50 md:hover:bg-transparent'

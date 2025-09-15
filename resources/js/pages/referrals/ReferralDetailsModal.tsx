@@ -29,7 +29,7 @@ export function ReferralDetailsModal({ isOpen, onClose, onProceed, referral }: R
           <DialogTitle>Referral Details</DialogTitle>
         </DialogHeader>
         <div className="space-y-3">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-2xl">
               Your referral was acknowledged by the UAGC Counselor.
             </p>
             <div className="grid grid-cols-2 gap-2 text-sm">
@@ -48,7 +48,7 @@ export function ReferralDetailsModal({ isOpen, onClose, onProceed, referral }: R
             </div>
             <div>
               <p className="font-semibold text-sm">Reason for request / referral:</p>
-              <p className="p-2 border rounded bg-gray-50 text-sm">{referral.reason}</p>
+              <p className="p-2 border rounded text-2xl text-sm">{referral.reason}</p>
             </div>
           </div>
           <div className="text-sm bg-background rounded-lg shadow-sm p-4">

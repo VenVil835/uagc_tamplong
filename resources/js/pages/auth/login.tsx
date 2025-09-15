@@ -186,7 +186,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                     />
                                     <button
                                         type="button"
-                                        className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                                        className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
                                         onClick={() => setShowPassword(!showPassword)}
                                     >
                                         {showPassword ? (
@@ -202,7 +202,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             {/* Login Button */}
                             <Button 
                                 type="submit" 
-                                className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition duration-200"
+                                className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition duration-200 cursor-pointer"
                                 disabled={processing}
                             >
                                 {processing ? (

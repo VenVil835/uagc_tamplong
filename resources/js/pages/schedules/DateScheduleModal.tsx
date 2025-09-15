@@ -1,4 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import dayjs from "dayjs";
 
 interface Schedule {
   id: number;
@@ -12,6 +13,11 @@ interface Props {
   open: boolean;
   onClose: () => void;
   schedules: Schedule[];
+}
+
+function formatTimeTo12Hour(time: string): string {
+  // Tries both 24h and already formatted 12h inputs
+  return dayjs(time, ["HH:mm", "hh:mm A"]).format("hh:mm A");
 }
 
 export default function DateScheduleModal({ open, onClose, schedules }: Props) {
@@ -33,10 +39,10 @@ export default function DateScheduleModal({ open, onClose, schedules }: Props) {
 
         <div className="space-y-4">
           {schedules.map((s) => (
-            <div key={s.id} className="border rounded-md p-3 bg-gray-50">
-              <h3 className="font-medium">{s.title}</h3>
-              <p className="text-sm text-gray-600">
-                {s.startTime} - {s.endTime}
+            <div key={s.id} className="border rounded-md p-3">
+              <h3 className="font-medium text-1xl">{s.title}</h3>
+              <p className="text-sm text-1xl">
+                {formatTimeTo12Hour(s.startTime)} - {formatTimeTo12Hour(s.endTime)}
               </p>
             </div>
           ))}

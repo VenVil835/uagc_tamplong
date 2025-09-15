@@ -24,7 +24,7 @@ const VideoDetailView: React.FC<VideoDetailViewProps> = ({
       {/* Back button */}
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4"
+        className="flex items-center gap-2 text-1xl mb-4 cursor-pointer"
       >
         <ChevronLeft className="w-4 h-4" />
         Back to Videos
@@ -44,9 +44,9 @@ const VideoDetailView: React.FC<VideoDetailViewProps> = ({
           </div>
 
           {/* Info */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border">
+        <div className="rounded-xl p-6 shadow-sm border">
           <h1 className="text-2xl font-bold mb-4">{selectedVideo.title}</h1>
-          <div className="flex items-center gap-6 text-sm text-gray-600 mb-4">
+          <div className="flex items-center gap-6 text-sm mb-4">
             <span className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
               {selectedVideo.postedDate}
@@ -56,14 +56,14 @@ const VideoDetailView: React.FC<VideoDetailViewProps> = ({
               {selectedVideo.postedBy}
             </span>
           </div>
-          <p className="text-gray-700 mb-6">{selectedVideo.description}</p>
+          <p className="mb-6">{selectedVideo.description}</p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
             {selectedVideo.tags.map((tag: string) => (
               <span
                 key={tag}
-                className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                className="border px-3 py-1 rounded-full text-sm"
               >
                 #{tag}
               </span>
@@ -72,7 +72,7 @@ const VideoDetailView: React.FC<VideoDetailViewProps> = ({
 
           {/* Insights */}
           <h3 className="font-semibold mb-3">What to Expect:</h3>
-          <ul className="list-disc pl-5 text-gray-700 space-y-1">
+          <ul className="list-disc pl-5 space-y-1">
             {selectedVideo.insights.map((insight: string, idx: number) => (
               <li key={idx}>{insight}</li>
             ))}
@@ -82,13 +82,13 @@ const VideoDetailView: React.FC<VideoDetailViewProps> = ({
         </div>
 
         {/* Right: Related Videos */}
-        <div className="bg-white rounded-xl p-6">
+        <div className="rounded-xl p-6">
         <h2 className="text-lg font-semibold mb-4">Related Videos</h2>
         <div className="space-y-4">
           {relatedVideos.map((video) => (
             <div
               key={video.id}
-              className="flex gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded"
+              className="flex gap-3 cursor-pointer p-2 rounded"
               onClick={() => onVideoClick(video)}
             >
               <img

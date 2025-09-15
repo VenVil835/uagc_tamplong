@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { X } from "lucide-react";
+import dayjs from "dayjs";
 
+function formatTimeTo12Hour(time: string): string {
+  // Tries both 24h and already formatted 12h inputs
+  return dayjs(time, ["HH:mm", "hh:mm A"]).format("hh:mm A");
+}
 interface Props {
   onClose: () => void;
   onSave: (schedule: {
@@ -11,6 +17,7 @@ interface Props {
   }) => void;
 }
 
+
 export default function ScheduleModal({ onClose, onSave }: Props) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
@@ -19,13 +26,13 @@ export default function ScheduleModal({ onClose, onSave }: Props) {
 
   const handleSave = () => {
     if (!title || !date || !startTime || !endTime) return;
-    onSave({ title, date, startTime, endTime });
+    onSave({ title, date, startTime: formatTimeTo12Hour(startTime), endTime: formatTimeTo12Hour(endTime), });
     onClose();
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-[400px] relative">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-50 text-1xl">
+      <div className="bg-white dark:bg-black border rounded-lg shadow-lg p-6 w-[400px] relative">
         <button onClick={onClose} className="absolute top-3 right-3">
           <X className="w-5 h-5 cursor-pointer" />
         </button>

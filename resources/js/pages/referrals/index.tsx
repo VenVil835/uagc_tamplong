@@ -457,7 +457,7 @@ export default function Index() {
               {/* Intake Form view with back button */}
             
                 <button 
-                  className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                  className="flex items-center gap-2 cursor-pointer"
                    onClick={() => setShowIntakeForm(false)}>
                   <ChevronLeft className="w-4 h-4" />
                   Back to Referrals

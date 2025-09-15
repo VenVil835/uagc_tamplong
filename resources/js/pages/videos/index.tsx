@@ -39,7 +39,28 @@ export default function Index() {
         "University wellness initiatives and programs designed to promote student well-being throughout the month.",
       thumbnail:
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
-      videoUrl: "https://www.youtube.com/watch?v=K_t1-r6RDhA&ab_channel=SHAMCEYTV",
+      videoUrl: "https://youtube.com/embed/Akdr8klkgl4",
+      videoType: "youtube",
+      duration: "22:15",
+      category: "Wellness",
+      postedDate: "October 15th, 2023",
+      postedBy: "usepofficial",
+      tags: ["wellness", "university", "health"],
+      insights: [
+        "Overview of wellness programs available to students.",
+        "Tips for maintaining physical and mental health during academic stress.",
+        "Community building activities for student engagement.",
+      ],
+      relatedVideos: [1, 3, 5],
+    },
+    {
+      id: 3,
+      title: "USeP Wellness Month October 2023",
+      description:
+        "University wellness initiatives and programs designed to promote student well-being throughout the month.",
+      thumbnail:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
+      videoUrl: "https://youtube.com/embed/zuoVd2QNxJo",
       videoType: "youtube",
       duration: "22:15",
       category: "Wellness",
@@ -93,8 +114,8 @@ export default function Index() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Latest Videos</h2>
-          <p className="text-gray-600 text-sm">
+          <h2 className="text-2xl font-bold">Latest Videos</h2>
+          <p className="text-2xl text-sm">
             Know the latest videos that would support your well being
           </p>
         </div>
@@ -107,20 +128,20 @@ export default function Index() {
           className="px-3 py-2 border border-sidebar-border rounded-lg text-sm"
         >
           {categories.map((category) => (
-            <option key={category}>{category}</option>
+            <option className="text-muted-foreground" key={category}>{category}</option>
           ))}
         </select>
       </div>
 
       {/* Video Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 text-1xl">
         {currentVideos.map((video) => (
           <div
             key={video.id}
             onClick={() => handleVideoClick(video)}
-            className="group cursor-pointer bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-200"
+            className="group cursor-pointer rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-200"
           >
-            <div className="relative w-full h-48 bg-gray-200 overflow-hidden">
+            <div className="relative w-full h-48 overflow-hidden">
               <img
                 src={video.thumbnail}
                 alt={video.title}
@@ -132,10 +153,10 @@ export default function Index() {
               </div>
             </div>
             <div className="p-4">
-              <h3 className="font-semibold text-gray-900 mb-2">
+              <h3 className="font-semibold mb-2">
                 {video.title}
               </h3>
-              <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+              <p className="text-sm line-clamp-2 mb-3">
                 {video.description}
               </p>
             </div>

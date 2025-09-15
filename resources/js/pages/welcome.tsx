@@ -219,7 +219,7 @@
                       Please take a moment to fill out the Guidance & Counselling Form so we
                       can better understand your concerns and provide the support you need.
                     </p>
-                    <button className="w-full md:w-auto max-w-sm bg-red-600 text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300">
+                    <button className="cursor-pointer w-full md:w-auto max-w-sm bg-red-600 text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300">
                       Guidance & Counselling Form
                     </button>
                   </div>
@@ -251,7 +251,7 @@
                       Please take a moment to fill out the Psychological Test Form so we
                       can better understand your concerns and provide the support you need.
                     </p>
-                    <button className="w-full md:w-auto max-w-sm bg-[#E59C24] text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300">
+                    <button className="cursor-pointer w-full md:w-auto max-w-sm bg-[#E59C24] text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300">
                       Psychological Test Form
                     </button>
                   </div>
@@ -283,7 +283,7 @@
                       If you need additional support, we're here to help—please complete the
                       referral form so we can connect you to the right services.
                     </p>
-                    <button className="w-full md:w-auto max-w-sm bg-red-700 text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300">
+                    <button className="cursor-pointer w-full md:w-auto max-w-sm bg-red-700 text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300">
                       Referral Form
                     </button>
                   </div>
@@ -352,7 +352,7 @@
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className="text-gray-500 hover:text-gray-900 transition-colors duration-300"
+                  className="cursor-pointer text-gray-500 hover:text-gray-900 transition-colors duration-300"
                 >
                   {label}
                 </button>

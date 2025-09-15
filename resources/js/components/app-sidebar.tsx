@@ -8,11 +8,11 @@ import { BookOpen, Calendar, CalendarClock, Folder, LayoutGrid, VideoIcon } from
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
-    {
-        title: 'Dashboard',
-        href: '/dashboard',
-        icon: LayoutGrid,
-    },
+    // {
+    //     title: 'Dashboard',
+    //     href: '/dashboard',
+    //     icon: LayoutGrid,
+    // },
      {
         title: 'Videos',
         href: '/videos',
@@ -50,7 +50,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href="/dashboard" prefetch>
+                            <Link href="/videos" prefetch>
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>
